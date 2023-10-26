@@ -1,0 +1,31 @@
+let pizzaInIncehes:Int = 16
+let numberOfPeople:Int = 8
+let slicesPerPerson:Int = 4
+//Observed Property Nedir defterden açıklamasına bak
+    var iwantPizza:Int = 10{
+        willSet{
+            
+        }
+        didSet{
+            if iwantPizza >= 18{
+                print("iwantPizza 18 den büyük değildir")
+                iwantPizza = 18
+            }
+        }
+    }
+    iwantPizza = 33
+    print(iwantPizza)
+var numberOfSlices = Int{
+    get{
+        return pizzaInIncehes - 4
+    }
+}
+var numberOfPizza:Int{
+    get{
+        let numberOfFedPerPizza = numberOfSlices / slicesPerPerson
+        return numberOfPeople / numberOfFedPerPizza
+    }
+    set{
+        let totalSlices = numberOfSlices * newValue
+        numberOfPeople = totalSlices / slicesPerPerson
+    }

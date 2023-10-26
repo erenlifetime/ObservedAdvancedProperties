@@ -1,0 +1,16 @@
+var width:Int = 4
+var height:Int = 12
+var buckets:Int{
+    set{
+        let area = width * height
+        let areaCoverBucket:Float = 1.5
+        let numberofBuckets = area / areaCoverBucket
+        let roundedBucket = ceil(numberofBuckets)
+        return Int(roundedBucket)
+    }
+}
+set{
+    let areaCanCover = Double(newValue) * 1.5
+    print("This Amount of paint can cover an area of\(areaCanCover) ")
+}
+buckets = 8
